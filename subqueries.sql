@@ -50,3 +50,14 @@ WHERE artist_id IN (
   )
 );
 -- something like this but not quite
+
+-- spencer's glorious answer WITHOUT subqueries :) 
+select
+    t.name,
+    a.name
+from
+	artist a
+left join album al on al.artist_id = a.artist_id
+left join track t on t.album_id = al.album_id
+where
+	a.artist_id = 51
